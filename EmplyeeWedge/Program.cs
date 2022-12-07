@@ -6,16 +6,21 @@ class Program
     static void Main(string[] args)
     {
         int Full_Time = 1;
+        int Wedge_Rate = 20;
+        int EmpHours = 0;
+        int EmpWedge = 0;
         Random random = new Random();
-        int EmpCheck = random.Next();
-        if (EmpCheck == 1)
+        int EmpCheck = random.Next(0,2);
+        if (EmpCheck == Full_Time)
         {
-            Console.WriteLine("Employee is Present");
+            EmpHours = 8;
         }
         else
         {
-            Console.WriteLine("Employee is Absent");
+            EmpHours = 0;
         }
+        EmpWedge = EmpHours * Wedge_Rate;
+        Console.WriteLine("Employee Daily Wage : " + EmpWedge);
     }
  
 }
