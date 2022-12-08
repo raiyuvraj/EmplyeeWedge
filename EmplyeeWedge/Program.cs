@@ -7,14 +7,16 @@ class Program
     public const int Part_Time = 2;
     public const int Wedge_Rate = 20;
     public const int Working_Days = 20;
+    public const int Max_Working_Houors = 100;
 
     static void Main(string[] args)
     {
         int EmpHours = 0;
-        int EmpWedge = 0;
-        int TotalWedge = 0;
-        for  (int days = 0; days < Working_Days; days++)
+        int Total_Hours = 0;
+        int Total_Days = 0;
+        while (Total_Hours <= Max_Working_Houors && Total_Days <= Working_Days) ;
         {
+            Total_Days++;
             Random random = new Random();
             int EmpCheck = random.Next(0, 3);
             switch (EmpCheck)
@@ -29,11 +31,11 @@ class Program
                     EmpHours = 0;
                     break;
             }
-            EmpWedge = EmpHours * Wedge_Rate;
-            TotalWedge += EmpWedge;
-            Console.WriteLine("Employee Daily Wage : " + EmpWedge);
+            Total_Hours += EmpHours;
+            Console.WriteLine("Total Days :" + Total_Days + "Total Hours: " + Total_Hours);
         }
-        Console.WriteLine("Total Wedge for month" + TotalWedge);
+        int EmpWedge = Total_Hours * Wedge_Rate;
+        Console.WriteLine("Total Wedge :" + EmpWedge);
     }
 
 }
