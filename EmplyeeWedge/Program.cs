@@ -3,26 +3,28 @@
 
 class Program
 {
+    public const int Full_Time = 1;
+    public const int Part_Time = 2;
+    public const int Wedge_Rate = 20;
+
     static void Main(string[] args)
     {
-        int Full_Time = 1;
-        int Part_Time = 2;
-        int Wedge_Rate = 20;
         int EmpHours = 0;
         int EmpWedge = 0;
         Random random = new Random();
         int EmpCheck = random.Next(0,3);
-        if (EmpCheck == Full_Time)
+        switch  (EmpCheck)
         {
-            EmpHours = 8;
-        }
-        else if (EmpCheck == Part_Time)
-        {
-            EmpHours = 4;
-        }
-        else
-        {
-            EmpHours = 0;
+            case Full_Time:
+                EmpHours = 8;
+                break;
+            case Part_Time:
+                EmpHours = 4;
+                break;
+            default:
+                EmpHours = 0;
+                break;
+
         }
         EmpWedge = EmpHours * Wedge_Rate;
         Console.WriteLine("Employee Daily Wage : " + EmpWedge);
